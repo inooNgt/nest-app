@@ -71,7 +71,7 @@ npm run typeorm schema:drop
 
 
 
-# sequelize 数据库变更
+# sequelize 数据库变更   
 npx sequelize db:migrate
 # 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
 # npx sequelize db:migrate:undo

@@ -1,7 +1,7 @@
 import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { User } from '../interfaces/user.interface';
+import { User } from '../../interfaces/user.interface';
 
 @ApiTags('用户相关')
 @Controller('users')

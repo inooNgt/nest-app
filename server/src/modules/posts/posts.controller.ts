@@ -4,12 +4,12 @@ import {
   Post,
   Req,
   Body,
-  Request,
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
+import { Request } from 'express';
 import { PostsService } from './posts.service';
-import { Posts } from '../interfaces/post.interface';
+import { Posts } from '../../interfaces/post.interface';
 // import { ValidationPipe } from './validate.pipe';
 import { CreatePostDto } from './create-post.dto';
 @Controller('posts')

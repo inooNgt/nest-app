@@ -1,23 +1,24 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { PostsModule } from './posts/posts.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
+import { PostsModule } from './modules/posts/posts.module';
+import { ExerciseModule } from './modules/exercise/exercise.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dbconfig } from './config/index';
 import { MyNamingStrategy } from './config/naming-strategy';
-import { User } from './entity/user.entity';
-import { Post } from './entity/post.entity';
-import { AuthModule } from './auth/auth.module';
+import { User,Post,Exercise } from "./entity/index";
 @Module({
   imports: [
     AuthModule,
     UsersModule,
     PostsModule,
+    ExerciseModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       ...dbconfig,
-      entities: [User, Post],
+      entities: [User, Post,Exercise],
       namingStrategy: new MyNamingStrategy(),
     }),
   ],
