@@ -1,10 +1,11 @@
 <template>
   <div>
     <n-button @click="createPost">create post</n-button>
+    <n-button @click="createExercise">create exercise</n-button>
     <ul>
       {{
-        state.users
-      }}
+      state.users
+    }}
     </ul>
   </div>
 </template>
@@ -29,6 +30,19 @@ const createPost = async () => {
       title: "title-1",
       author: "ngt",
       content: "this is post content",
+    }),
+  });
+};
+const createExercise = async () => {
+  const res = await request("/api/exercise", {
+    method: "post",
+    body: JSON.stringify({
+      type: '1',
+      author: "ngt",
+      answer: 'A',
+      analysis: '...',
+      options: 'A@B@C@D',
+      content: "this is exercise content1",
     }),
   });
 };

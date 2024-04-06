@@ -1,9 +1,13 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsInt, IsNotEmpty } from 'class-validator';
 
 export class CreateExerciseDto {
   @IsNotEmpty()
   @IsString()
   content: string;
+
+  @IsNotEmpty()
+  @IsInt()
+  type: number;
 
   @IsNotEmpty()
   @IsString()

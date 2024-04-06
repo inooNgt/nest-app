@@ -1,21 +1,13 @@
 <template>
-  <div>
+  <n-config-provider :theme="darkTheme">
     <router-view></router-view>
-  </div>
+  </n-config-provider>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+import { darkTheme } from 'naive-ui'
+console.log('[ darkTheme ]-9', darkTheme)
+
+</script>
+
+<style></style>

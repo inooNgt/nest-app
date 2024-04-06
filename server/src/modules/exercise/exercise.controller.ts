@@ -1,8 +1,16 @@
-import { Controller, Get,Post, HttpException, HttpStatus ,Body} from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  HttpException,
+  HttpStatus,
+  Body,
+} from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { ExerciseService } from './exercise.service';
 import { Exercise } from '../../interfaces/exercise.interface';
-import {CreateExerciseDto} from './create-exercise.dto'
+import { CreateExerciseDto } from './create-exercise.dto';
+import { ValidationPipe } from '../../pipes/validate.pipe';
 
 @ApiTags('exercise api')
 @Controller('exercise')
@@ -11,8 +19,10 @@ export class ExerciseController {
 
   @Post()
   @ApiOperation({ summary: '创建题目' })
-  async create(@Body() dto: CreateExerciseDto): Promise<Exercise> {
-    console.log('ExerciseController create',dto)
+  async create(
+    @Body(new ValidationPipe()) dto: CreateExerciseDto,
+  ): Promise<Exercise> {
+    console.log('ExerciseController create', dto);
     let data;
     try {
       data = await this.exerciseService.create(dto);

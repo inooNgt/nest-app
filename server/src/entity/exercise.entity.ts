@@ -11,19 +11,29 @@ export class Exercise {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: '' })
+  @Column({
+    type: 'int',
+    comment:
+      '题目类型:1-言语理解与表达、2-数量关系、3-判断推理、4-常识判断、5-资料分析',
+  })
+  type: string;
+
+  @Column({ comment: '题目内容', unique: true })
   content: string;
 
-  @Column({ default: '' })
+  @Column({})
   options: string;
 
-  @Column({ default: '' })
+  @Column({})
   answer: string;
 
-  @Column({ default: '' })
+  @Column({ nullable: true })
   analysis: string;
 
-  @Column({ default: '', nullable: true })
+  @Column()
+  author: string;
+
+  @Column({ nullable: true })
   remarks: string;
 
   @CreateDateColumn()
