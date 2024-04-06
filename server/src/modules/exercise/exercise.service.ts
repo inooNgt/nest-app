@@ -11,7 +11,15 @@ export class ExerciseService {
   ) {}
 
   create(dto) {
-    return this.exerciseRepository.create(dto);
+    let exercise = this.exerciseRepository.create(dto);
+    let res;
+    try {
+      res = this.exerciseRepository.save(exercise);
+      console.log('ExerciseService create:', dto, res);
+    } catch (error) {
+      console.log('create error', error);
+    }
+    return res;
   }
 
   findAll(): Promise<Exercise[]> {
@@ -22,7 +30,7 @@ export class ExerciseService {
     return this.exerciseRepository.findOne({ where: { id } });
   }
 
-  async remove(id: number): Promise<void> {                           
+  async remove(id: number): Promise<void> {
     await this.exerciseRepository.delete(id);
   }
 }

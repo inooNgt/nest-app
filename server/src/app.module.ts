@@ -8,7 +8,7 @@ import { ExerciseModule } from './modules/exercise/exercise.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dbconfig } from './config/index';
 import { MyNamingStrategy } from './config/naming-strategy';
-import { User,Post,Exercise } from "./entity/index";
+// import { User, Post, Exercise } from './entity/index';
 @Module({
   imports: [
     AuthModule,
@@ -18,7 +18,7 @@ import { User,Post,Exercise } from "./entity/index";
     TypeOrmModule.forRoot({
       type: 'mysql',
       ...dbconfig,
-      entities: [User, Post,Exercise],
+      autoLoadEntities: true,
       namingStrategy: new MyNamingStrategy(),
     }),
   ],

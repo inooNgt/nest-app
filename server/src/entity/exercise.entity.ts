@@ -1,30 +1,34 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('exercise')
 export class Exercise {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ default: '' })
   content: string;
 
-  @Column()
+  @Column({ default: '' })
   options: string;
 
-  @Column()
+  @Column({ default: '' })
   answer: string;
 
-  @Column()
+  @Column({ default: '' })
   analysis: string;
 
-  @Column()
+  @Column({ default: '', nullable: true })
   remarks: string;
 
   @CreateDateColumn()
-  createTime: Date;
+  create_time: Date;
+
+  @UpdateDateColumn()
+  update_time: Date;
 }

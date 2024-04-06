@@ -1,12 +1,22 @@
-import { IsString } from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 
 export class CreateExerciseDto {
+  @IsNotEmpty()
   @IsString()
-  answer: string;
+  content: string;
 
+  @IsNotEmpty()
   @IsString()
   options: string;
 
+  @IsNotEmpty()
   @IsString()
-  content: string;
+  answer: string;
+
+  @IsNotEmpty()
+  @IsString()
+  analysis: string;
+
+  @IsString()
+  remarks: string;
 }

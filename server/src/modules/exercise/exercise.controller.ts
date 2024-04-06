@@ -12,7 +12,7 @@ export class ExerciseController {
   @Post()
   @ApiOperation({ summary: '创建题目' })
   async create(@Body() dto: CreateExerciseDto): Promise<Exercise> {
-    console.log('create',dto)
+    console.log('ExerciseController create',dto)
     let data;
     try {
       data = await this.exerciseService.create(dto);
