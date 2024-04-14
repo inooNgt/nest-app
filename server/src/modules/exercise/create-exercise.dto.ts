@@ -1,4 +1,5 @@
-import { IsString, IsInt, IsNotEmpty } from 'class-validator';
+// https://wdk-docs.github.io/nestjs-docs/docs/validator/class-validator/
+import { IsString, IsInt, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateExerciseDto {
   @IsNotEmpty()
@@ -21,6 +22,11 @@ export class CreateExerciseDto {
   @IsString()
   analysis: string;
 
+  @IsOptional()
   @IsString()
   remarks: string;
+
+  @IsOptional()
+  @IsString()
+  author: string;
 }

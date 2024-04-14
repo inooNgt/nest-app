@@ -30,7 +30,7 @@ export class Exercise {
   @Column({ nullable: true })
   analysis: string;
 
-  @Column()
+  @Column({ nullable: true })
   author: string;
 
   @Column({ nullable: true })

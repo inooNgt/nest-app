@@ -2,17 +2,18 @@
   <div>
     <n-button @click="createPost">create post</n-button>
     <n-button @click="createExercise">create exercise</n-button>
-    <ul>
-      {{
-      state.users
-    }}
-    </ul>
+    <ExerciseForm />
+    <ExerciseList />
   </div>
 </template>
 
 <script setup>
 import { reactive } from "vue";
 import { request } from "@/service";
+import { useMessage } from 'naive-ui'
+import ExerciseList from "./exercise-list.vue";
+import ExerciseForm from "./exercise-form.vue";
+window.Message = useMessage()
 const state = reactive({
   users: [],
 });
@@ -37,7 +38,7 @@ const createExercise = async () => {
   const res = await request("/api/exercise", {
     method: "post",
     body: JSON.stringify({
-      type: '1',
+      type: 1,
       author: "ngt",
       answer: 'A',
       analysis: '...',
@@ -46,4 +47,6 @@ const createExercise = async () => {
     }),
   });
 };
+
+
 </script>
